@@ -50,7 +50,7 @@ public class BoardController {
 
         boardService.writeSave(boardDto);
 //        return ResponseEntity.ok("/main1");
-        return ResponseEntity.ok().body(authentication.getName() + "님 게시글 등록 완료.");
+        return ResponseEntity.ok().body(authentication.getName() + "님 게시글 등록 완료. ㅇㅇ");
     }
 
     // 글 수정
