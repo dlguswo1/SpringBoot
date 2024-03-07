@@ -58,7 +58,7 @@ jobs:
       run: cp ./scripts/*.sh ./deploy
 
     - name: Make zip file
-      run: zip -r ./pipespringproject.zip ./deploy
+      run: zip -r ./githubactionspring.zip ./deploy
       shell: bash
 
     - name: Configure AWS credentials
@@ -69,7 +69,7 @@ jobs:
         aws-region: ap-northeast-2
 
     - name: Upload to S3
-      run: aws s3 cp --region ap-northeast-2 ./pipespringproject.zip s3://pipespringproject
+      run: aws s3 cp --region ap-northeast-2 ./githubactionspring.zip s3://githubactionspring
       
     # Deploy
     - name: Deploy
@@ -78,10 +78,10 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.spring_secret_access_key }}
       run: |
         aws deploy create-deployment \
-        --application-name pipeline \
-        --deployment-group-name pipeline-group \
+        --application-name spring \
+        --deployment-group-name spring-group \
         --file-exists-behavior OVERWRITE \
-        --s3-location bucket=pipespringproject,key=pipespringproject.zip,bundleType=zip \
+        --s3-location bucket=githubactionspring,key=githubactionspring.zip,bundleType=zip \
         --region ap-northeast-2 
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
