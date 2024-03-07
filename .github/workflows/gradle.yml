@@ -12,6 +12,8 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+env:
+  S3_BUCKET_NAME: pipespringproject
 
 jobs:
   build:
@@ -47,6 +49,14 @@ jobs:
     - name: Copy Jar
       run: cp ./build/libs/*.jar ./deploy
 
+    # appspec.yml 파일 복사
+    - name: Copy appspec.yml
+      run: cp appspec.yml ./deploy
+
+    # script files 복사
+    - name: Copy script
+      run: cp ./scripts/*.sh ./deploy
+
     - name: Make zip file
       run: zip -r ./spring.zip ./deploy
       shell: bash
@@ -60,6 +70,19 @@ jobs:
 
     - name: Upload to S3
       run: aws s3 cp --region ap-northeast-2 ./spring.zip s3://pipespringproject
+      
+    # Deploy
+    - name: Deploy
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.spring_access_key }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.spring_secret_access_key }}
+      run: |
+        aws deploy create-deployment \
+        --application-name pipeline \
+        --deployment-group-name pipeline-group \
+        --file-exists-behavior OVERWRITE \
+        --s3-location bucket=pipespringproject,key=spring.zip,bundleType=zip \
+        --region ap-northeast-2 
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
