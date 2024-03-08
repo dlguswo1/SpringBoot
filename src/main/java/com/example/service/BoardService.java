@@ -183,7 +183,8 @@ public class BoardService {
             MultipartFile boardFile = boardDtoUpdate.getBoardFile(); // 1.
             String originFileName = boardFile.getOriginalFilename(); // 2.
             String storedFileName = System.currentTimeMillis() + "_" + originFileName; // 3.
-            String savePath = "C:/spring_img/" + storedFileName; // 4.
+//            String savePath = "C:/spring_img/" + storedFileName; // 4.
+            String savePath = "/usr/project/java/spring_img/" + storedFileName; // 4.
             boardFile.transferTo(new File(savePath)); // 5.
             Board board = Board.convertToFileUpdateEntity(boardDtoUpdate);
 

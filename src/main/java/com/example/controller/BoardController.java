@@ -74,4 +74,9 @@ public class BoardController {
         return "ok";
     }
 
+    @GetMapping("/test1")
+    public String test() {
+        return "test 성공";
+    }
+
 }
