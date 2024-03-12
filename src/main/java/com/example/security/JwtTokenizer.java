@@ -43,12 +43,12 @@ public class JwtTokenizer {
 
 
     // 토큰 생성 메서드
-    public static String createToken(String memberId, String secretKey,
+    public static String createToken(String memberId, Integer members_Id, String secretKey,
                                Long expire) {
         Claims claims = Jwts.claims();
 
 //        claims.put("roles", roles);
-//        claims.put("members_Id", id);
+        claims.put("members_Id", members_Id);
         claims.put("memberId", memberId);
 
         return Jwts.builder()
@@ -67,6 +67,11 @@ public class JwtTokenizer {
     public static String getMemberId (String token, String secretKey) {
         return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token)
                 .getBody().get("memberId", String.class);
+    }
+
+    public static Integer getMembersId (String token, String secretKey) {
+        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token)
+                .getBody().get("members_Id", Integer.class);
     }
 
 }

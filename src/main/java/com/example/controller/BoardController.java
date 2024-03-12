@@ -1,19 +1,29 @@
 package com.example.controller;
 
 import com.example.model.BoardDto;
+import com.example.security.JwtTokenizer;
 import com.example.service.BoardService;
 
+import io.jsonwebtoken.Jwt;
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @RestController
+@RequiredArgsConstructor
 public class BoardController {
+    @Value("${jwt.secretKey}")
+    private String secretKey;
 
     @Autowired
     private BoardService boardService;
@@ -40,10 +50,18 @@ public class BoardController {
 
     //글 작성
     @PostMapping("/boardWrite")
-    public ResponseEntity<?> boardWrite(@ModelAttribute BoardDto boardDto, HttpSession session, Authentication authentication) throws IOException {
+    public ResponseEntity<?> boardWrite(@ModelAttribute BoardDto boardDto, HttpSession session, jakarta.servlet.http.HttpServletRequest request, Authentication authentication) throws IOException {
         // 세션에서 memberId와 MEMBERS_ID 가져오기
-        Integer members_Id = (Integer) session.getAttribute("members_Id");
-        String memberId = (String) session.getAttribute("memberId");
+//        Integer members_Id = (Integer) session.getAttribute("members_Id");
+//        String memberId = (String) session.getAttribute("memberId");
+//        String memberId = authentication.getName();
+
+        String token = request.getHeader(HttpHeaders.AUTHORIZATION);
+
+        String realtoken = token.split(" ")[1];
+
+        Integer members_Id = JwtTokenizer.getMembersId(realtoken, secretKey);
+        String memberId = JwtTokenizer.getMemberId(realtoken, secretKey);
 
         boardDto.setMembers_Id(members_Id);
         boardDto.setMemberId(memberId);

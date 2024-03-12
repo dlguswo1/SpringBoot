@@ -21,9 +21,9 @@ public class UserService {
 
     private Long expired = 1000 * 60 * 60L;
 
-    public String login(String memberId, String memberPw) {
+    public String login(String memberId, String memberPw, Integer id) {
 
-        return JwtTokenizer.createToken(memberId, secretKey, expired);
+        return JwtTokenizer.createToken(memberId, id, secretKey, expired);
     }
 
 

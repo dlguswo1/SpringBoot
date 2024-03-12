@@ -110,11 +110,13 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOrigin("*");
         config.addAllowedMethod("*");
+        config.addAllowedHeader("*");
         config.setAllowedMethods(List.of("GET","POST","DELETE","PATCH","OPTION","PUT"));
         source.registerCorsConfiguration("/**", config);
 
         return source;
     }
+
 
     // 암호를 암호화하거나, 사용자가 입력한 암호가 기존 암호랑 일치하는지 검사할 때 이 Bean을 사용
     @Bean

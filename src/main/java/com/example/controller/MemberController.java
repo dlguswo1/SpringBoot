@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.entity.Members;
@@ -23,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class MemberController {
     @Autowired
     private MembersService membersService;
@@ -67,10 +68,11 @@ public class MemberController {
         }
 
         List<String> roles = Collections.singletonList(members.get().getRole());
+        Integer members_Id = members.get().getId();
 
         // JWT토큰 생성. jwt 라이브러리를 이용하여 생성
         // MEMBERS_ID, memberId, role 3개 보낼거임
-        String accessToken = userService.login(membersDto.getMemberId(),membersDto.getMemberPw());
+        String accessToken = userService.login(membersDto.getMemberId(),membersDto.getMemberPw(), members_Id);
 //        String refreshToken = jwtTokenizer.createRefreshToken(members.get().getMemberId());
 
 
