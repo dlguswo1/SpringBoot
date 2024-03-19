@@ -84,6 +84,14 @@ jobs:
         --s3-location bucket=githubactionspring,key=githubactionspring.zip,bundleType=zip \
         --region ap-northeast-2 
 
+    ############
+    - name: Deploy Application
+      run: |
+        chmod +x ./deploy/scripts/deploy.sh  # 스크립트에 실행 권한 부여
+        ./deploy/scripts/deploy.sh  # 배포 스크립트 실행
+      working-directory: ./deploy  # 작업 디렉토리 설정
+    ############
+
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
     #
