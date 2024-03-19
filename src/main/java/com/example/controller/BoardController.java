@@ -101,7 +101,7 @@ public class BoardController {
 
     @GetMapping("/test1")
     public String test() {
-        return "test 성공";
+        return "test test test !!!";
     }
 
 //    @GetMapping("/admintest")
