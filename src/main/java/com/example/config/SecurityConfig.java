@@ -92,9 +92,10 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authorizeRequests) ->
                         authorizeRequests
-                                .requestMatchers("/login", "join", "/main1", "/main2", "/main3", "/upload").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/boardEdit/**", "/boardWrite/**").authenticated()
+                                .requestMatchers("/login", "join", "/main1", "/main2", "/main3", "/upload/**").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/boardEdit/**", "/boardWrite/**", "/comments/**").authenticated()
                                 .requestMatchers(HttpMethod.GET, "/boardDelete/","/logoutReact").authenticated()
+                                .requestMatchers("/admin").hasRole("ADMIN")
                                 .anyRequest().permitAll());
 
         http

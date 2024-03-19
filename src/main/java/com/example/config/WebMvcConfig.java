@@ -11,9 +11,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 public class WebMvcConfig implements WebMvcConfigurer {
     private String resourcePath = "/upload/**"; // view에서 접근할 경로
-    private String savePath = "file:///usr/project/java/spring_img/";
+//    private String savePath = "file:///usr/project/java/spring_img/";
 //    private String savePath = "file:///home/ubuntu/app/spring_img";
-//    private String savePath = "file:///C:/spring_img/"; // 실제 파일 저장 경로
+    private String savePath = "file:///C:/spring_img/"; // 실제 파일 저장 경로
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

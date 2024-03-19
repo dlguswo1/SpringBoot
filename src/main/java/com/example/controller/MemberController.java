@@ -50,8 +50,15 @@ public class MemberController {
 
     @PostMapping("/join")
     public ResponseEntity<?> join(@RequestBody MembersDto membersDto) {
-        membersService.join(membersDto);
-        return ResponseEntity.ok().build();
+
+        Optional<Members> members = membersService.findByMemberId(membersDto);
+        if (members.isPresent()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("이미 존재하는 아이디");
+        }
+        else {
+            membersService.join(membersDto);
+            return ResponseEntity.ok().build();
+        }
     }
 
     @PostMapping("/login")

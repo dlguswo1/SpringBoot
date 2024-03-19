@@ -48,8 +48,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
-
-
         // 토큰에서 이름 꺼내기
         String realToken = authorization.split(" ")[1];
         // userName 토큰에서 꺼내기
@@ -63,12 +61,29 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
+        Integer tokenId = JwtTokenizer.getMembersId(realToken, secretKey);
+
+        if (tokenId == null) {
+            log.error("token's members_Id is null");
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        List<SimpleGrantedAuthority> authorities;
+        if (tokenId == 1) {
+            log.info("token members_Id : {}", tokenId);
+            authorities = List.of(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        }
+        else {
+            log.info("token members_Id : {}", tokenId);
+            authorities = List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        }
 
         // 권한 부여
         UsernamePasswordAuthenticationToken authenticationToken =
                 // 나중에 db에서 role을 꺼내오자
                 // 지금은 하드코딩으로 rule = user 넣어놨음
-                new UsernamePasswordAuthenticationToken(token, null, List.of(new SimpleGrantedAuthority("USER")));
+                new UsernamePasswordAuthenticationToken(token, null, authorities);
         authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         filterChain.doFilter(request, response);

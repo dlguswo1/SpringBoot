@@ -56,6 +56,8 @@ public class Board {
     @JsonIgnore
     private List<BoardFile> boardFileList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<BoardComment> boardCommentList = new ArrayList<>();
 
     // 입력한 정보를 받아와서 Entity에 받아올 때
     // 파일이 없을 떄

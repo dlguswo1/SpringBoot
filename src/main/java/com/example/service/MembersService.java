@@ -46,6 +46,12 @@ public class MembersService {
         membersDao.save(members);
     }
 
+    public Optional<Members> findByMemberId(MembersDto membersDto) {
+        String memberId = membersDto.getMemberId();
+
+        return membersDao.findByMemberId(memberId);
+    }
+
     public Optional<Members> findByMemberIdAndMemberPw(MembersDto membersDto) {
         String memberId = membersDto.getMemberId();
         String memberPw = membersDto.getMemberPw();

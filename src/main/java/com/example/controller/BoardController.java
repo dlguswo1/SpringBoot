@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.model.BoardCommentDto;
 import com.example.model.BoardDto;
 import com.example.security.JwtTokenizer;
 import com.example.service.BoardService;
@@ -10,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -41,6 +43,11 @@ public class BoardController {
     @GetMapping("/main3")
     public List<BoardDto> main3() {
         return boardService.getAllBoard();
+    }
+
+    @GetMapping("/board/{id}")
+    public List<BoardCommentDto> board(@PathVariable(name = "id") Integer id) {
+        return boardService.findAll(id);
     }
 
     @GetMapping("/boardEdit/{id}")
@@ -82,7 +89,7 @@ public class BoardController {
         boardDtoUpdate.setContent(boardDto.getContent());
         boardDtoUpdate.setUpdateDate(boardDtoUpdate.getUpdateDate());
 
-        boardService.updateSave(boardDtoUpdate);
+        boardService.updateSave(boardDtoUpdate, id);
         return ResponseEntity.ok().body(authentication.getName() + "님 게시글 수정 완료");
     }
 
@@ -97,4 +104,30 @@ public class BoardController {
         return "test 성공";
     }
 
+//    @GetMapping("/admintest")
+//    public ResponseEntity<String> adminTest() {
+//        return ResponseEntity.ok().body("adminTest 완료");
+//    }
+
+    @GetMapping("/admin")
+    public String adminTest() {
+        return "adminTest 완료";
+    }
+
+    @PostMapping("/comments")
+    public ResponseEntity comments(@RequestBody BoardCommentDto boardCommentDto) {
+        System.out.println("commemt : " + boardCommentDto);
+        Integer saveResult = boardService.saveComments(boardCommentDto);
+
+        if (saveResult != null) {
+            // 작성 성공 하고 save 하고 끝내면 안됨
+            // 작성하고 댓글 목록을 가져와서 리턴
+            // 댓글 목록 : 해당 게시글의 댓글 전체 board_id 기준
+            List<BoardCommentDto> boardCommentDtoList =  boardService.findAll(boardCommentDto.getBoardId());
+            return new ResponseEntity<>(boardCommentDtoList, HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>("해당 게시글이 존재하지 않습니다.", HttpStatus.NOT_FOUND);
+        }
+    }
 }
