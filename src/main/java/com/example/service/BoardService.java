@@ -40,7 +40,6 @@ public class BoardService {
 
     @Transactional
     public List<BoardDto> getTop10Board() {
-
         List<Board> top10Boards = boardDao.findTop10ByOrderByCreateDateDesc();
 
         return top10Boards.stream().map(board -> {
@@ -49,9 +48,14 @@ public class BoardService {
             // BoardFile 정보 가져오기
             List<BoardFile> boardFiles = board.getBoardFileList();
             if (!boardFiles.isEmpty()) {
-                BoardFile firstFile = boardFiles.get(0);
-                dto.setOriginFileName(Collections.singletonList(firstFile.getOriginFileName()));
-                dto.setStoredFileName(Collections.singletonList(firstFile.getStoredFileName()));
+                List<String> originFileNames = new ArrayList<>();
+                List<String> storedFileNames = new ArrayList<>();
+                for (BoardFile file : boardFiles) {
+                    originFileNames.add(file.getOriginFileName());
+                    storedFileNames.add(file.getStoredFileName());
+                }
+                dto.setOriginFileName(originFileNames);
+                dto.setStoredFileName(storedFileNames);
             }
 
             return dto;
@@ -241,6 +245,10 @@ public class BoardService {
 
     public void boardDelete(Integer id) {
         boardDao.deleteById(id);
+    }
+
+    public void commentDelete(Integer id) {
+        boardCommentDao.deleteById(id);
     }
 
     public Integer saveComments(BoardCommentDto boardCommentDto) {

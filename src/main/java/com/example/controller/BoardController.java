@@ -12,12 +12,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
@@ -99,9 +103,15 @@ public class BoardController {
         return "ok";
     }
 
+    @GetMapping("/commentDelete/{id}")
+    public String commentDelete(@PathVariable Integer id) {
+        boardService.commentDelete(id);
+        return "ok";
+    }
+
     @GetMapping("/test1")
     public String test() {
-        return "test test test !!!!!!";
+        return "test! test! test!";
     }
 
 //    @GetMapping("/admintest")
@@ -109,10 +119,10 @@ public class BoardController {
 //        return ResponseEntity.ok().body("adminTest 완료");
 //    }
 
-    @GetMapping("/admin")
-    public String adminTest() {
-        return "adminTest 완료";
-    }
+//    @GetMapping("/admin")
+//    public String adminTest() {
+//        return "adminTest 완료";
+//    }
 
     @PostMapping("/comments")
     public ResponseEntity comments(@RequestBody BoardCommentDto boardCommentDto) {
@@ -130,4 +140,24 @@ public class BoardController {
             return new ResponseEntity<>("해당 게시글이 존재하지 않습니다.", HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/download/{filename}")
+    public ResponseEntity<byte[]> downloadFile(@PathVariable String filename) throws IOException {
+        // 파일 경로 설정
+        String directory = "c:/spring_img";
+        Path file = Paths.get(directory, filename);
+
+        // 파일을 byte 배열로 읽어옴
+        byte[] data = Files.readAllBytes(file);
+
+        // 파일 다운로드를 위한 헤더 설정
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        headers.setContentDispositionFormData("attachment", filename);
+        headers.setContentLength(data.length);
+
+        // ResponseEntity를 통해 파일과 헤더를 클라이언트에 전송
+        return new ResponseEntity<>(data, headers, HttpStatus.OK);
+    }
+
 }
