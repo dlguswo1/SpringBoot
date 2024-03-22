@@ -92,6 +92,7 @@ public class BoardController {
         boardDtoUpdate.setTitle(boardDto.getTitle());
         boardDtoUpdate.setContent(boardDto.getContent());
         boardDtoUpdate.setUpdateDate(boardDtoUpdate.getUpdateDate());
+//        boardDtoUpdate.setBoardFile(boardDto.getBoardFile());
 
         boardService.updateSave(boardDtoUpdate, id);
         return ResponseEntity.ok().body(authentication.getName() + "님 게시글 수정 완료");

@@ -190,9 +190,12 @@ public class BoardService {
             if (optionalBoard.get().getFileAttached() == 1) {
                 List<BoardFile> boardFileList = optionalBoard.get().getBoardFileList();
 
-                Integer boardFileId = boardFileList.get(0).getId();
+                for (BoardFile boardFile1 : boardFileList) {
+                    boardFileDao.deleteById(boardFile1.getId());
+                }
 
-                boardFileDao.deleteById(boardFileId);
+//                Integer boardFileId = boardFileList.get(0).getId();
+//                boardFileDao.deleteById(boardFileId);
                 Board board = Board.convertToEntityUpdate(boardDtoUpdate);
                 boardDao.save(board);
             }
