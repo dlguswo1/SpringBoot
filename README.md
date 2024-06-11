@@ -1,10 +1,23 @@
 ## 메인화면 구성
 <h4>메인화면은 총 3개로 구성 하였다.</h4>
-<h5>1. 최신순으로 게시글 10개</h5>![메인화면1](https://github.com/dlguswo1/SpringBoot/assets/144756943/ffcdf7b7-b39d-4060-8f6a-78731f1e05fa)
-![메인화면2](https://github.com/dlguswo1/SpringBoot/assets/144756943/8497b7e0-092e-41c2-b9be-2e2c9ef7778e)
+<details>
+  <summary>
+    1. 최신순으로 게시글 10개
+  </summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/f371435d-11f5-4b39-bc84-d102306bf5a7"/>
+</details>
+<details>
+  <summary>2. 카테고리별 최신순 10개</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/4fe43a85-c4a8-4855-8aa7-fe0ae85af701"/>
+</details>
+<details>
+  <summary>3. 전체글</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/5e99db22-b2bd-4a03-bbe2-ad222baec4d5"/>
+</details>
 
-<h5>2. 카테고리별 최신순 10개</h5>
-![메인화면3](https://github.com/dlguswo1/SpringBoot/assets/144756943/b51867db-82a9-424e-9264-cba988e73404)
-
-<h5>3. 전체글</h5>
-
+<h4>게시글 상세보기</h4>
+<h5>게시글 상세보기는 제목, 이미지, 내용, 작성자 정보, 댓글 창으로 구성 하였다.</h5>
+<details>
+  <summary>게시글 상세보기</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/f50d9e38-1118-47e7-b7c8-439b77908f6d"/>
+</details>
