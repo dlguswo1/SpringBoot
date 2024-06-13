@@ -133,3 +133,31 @@
 <h6>1. ~반가워요 클릭 시 마이페이지로 이동한다.</h6>
 <h6>2. 종 모양 클릭 시 알림페이지로 이동한다.</h6>
 
+<br/>
+
+## 관리자 페이지
+<h4>마이페이지는 페이지관리, 회원관리로 구성되어있다.</h4>
+
+<details>
+  <summary>페이지 관리</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/67f0db93-9696-4d9d-b92e-77a8242f96d2"/>
+</details>
+<h6>1. 해당 3종류의 메인 페이지들이 나열되어있다.</h6>
+<h6>2. 해당 3개의 페이지중 메인 페이지를 선택할 수 있다.</h6>
+
+<br/>
+
+<details>
+  <summary>회원관리</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/3e30ff42-4838-415b-b3a2-f1eed31a12a5"/>
+</details>
+<h6>1. 회원의 정보들이 리스트로 나열되어 있다.</h6>
+<h6>2. 회원 클릭시 해당 회원정보/수정 모달이 띄워진다.</h6>
+
+<br/>
+
+<details>
+  <summary>회원수정 모</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/03d6d03a-9404-45ad-a8e4-4fa34021e270"/>
+</details>
+<h6>1. 해당 회원을 비활성화, 관한 변경을 할 수 있다.</h6>
