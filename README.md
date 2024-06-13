@@ -63,9 +63,18 @@
 ## 마이페이지
 <h4>마이페이지는 내가 쓴 글, 개인정보 수정, 알람으로 구성하였다.</h4>
 <details>
-  <summary>내가 쓴 </summary>
+  <summary>내가 쓴 글</summary>
   <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/68c3d07f-72ad-474d-861c-bccbf2846aa0"/>
 </details>
-<h6>1. 게시글 작성은 React-Quill editor을 사용하였다.</h6>
-<h6>2. 파일 첨부와 에디터에 파일은 별개이다.</h6>
-<h6>3. 파일과, 에디터 내용의 용량의 합이 30MB가 초과되면 작성이 불가능하다.</h6>
+<h6>1. 리스트 형식이고 등록일, 번호, 작성자, 제목으로 나타내었다.</h6>
+<h6>2. 리스트중 해당 게시글을 클릭 시 게시글 상세보기가 나온다.</h6>
+<h6>3. 파일항목은 다운이 가능하나 댓글작성, 댓글란은 나타내지 않았다.</h6>
+
+<br/>
+
+<details>
+  <summary>개인정보 수정 비밀번호 확인</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/c132aa8f-2f9e-4cd6-8ac8-dc62d9b04551"/>
+</details>
+<h6>1. 개인정보 수정 전 비밀번호를 확인한다.</h6>
+
