@@ -17,6 +17,28 @@
 
 <br/>
 
+## 게시글 작성
+<details>
+  <summary>게시글 작성</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/ac7985ec-4a47-4cef-8d15-c54cadc9f058"/>
+</details>
+<h6>1. 게시글 작성은 React-Quill editor을 사용하였다.</h6>
+<h6>2. 파일 첨부와 에디터에 파일은 별개이다.</h6>
+<h6>3. 파일과, 에디터 내용의 용량의 합이 30MB가 초과되면 작성이 불가능하다.</h6>
+
+<br/>
+
+<details>
+  <summary>게시글 수정</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/ac7985ec-4a47-4cef-8d15-c54cadc9f058"/>
+</details>
+<h6>1. 게시글 작성페이지에서 첨부했던 파일과, 작성했던 내용을 가져온다.</h6>
+<h6>2. 수정사항이 없을 경우 버튼은 비활성화 상태이다.</h6>
+<h6>3. 파일첨부를 취소하고 새로 추가할 수 있다. <br/>
+&nbsp;&nbsp;&nbsp;-(마찬가지로 게시글의 용량이 30MB을 초과하면 작성이 불가능하다.)</h6>
+  
+<br/>
+
 ## 게시글 상세보기
 <h5>게시글 상세보기는 제목, 이미지, 내용, 작성자 정보, 댓글 창으로 구성 하였다.</h5>
 <details>
@@ -25,14 +47,17 @@
 </details>
 
 <details>
-  <summary>게시글 상세보기 2(파일 다운로드)</summary>
+  <summary>게시글 상세보기 2 (파일 다운로드)</summary>
   <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/9c3084a1-3d14-460d-a715-c1242343b547"/>
 </details>
 <h6>파일버튼을 클릭시 다운로드가 가능하다.</h6>
 
 <details>
-  <summary>게시글 상세보기 3(댓글, 대댓글)</summary>
+  <summary>게시글 상세보기 3 (댓글, 대댓글)</summary>
   <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/aaeb71a4-06f6-40a1-aa06-b564b5b577b1"/>
 </details>
 <h6>댓글은 작성자, 시간, 내용이 표시되며 대댓글은 depth을 2단계까지 설정하였다.</h6>
+
+<br/>
+
 
