@@ -30,7 +30,7 @@
 
 <details>
   <summary>게시글 수정</summary>
-  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/ac7985ec-4a47-4cef-8d15-c54cadc9f058"/>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/f05252cd-74e9-4d26-823a-46c014e4dd06"/>
 </details>
 <h6>1. 게시글 작성페이지에서 첨부했던 파일과, 작성했던 내용을 가져온다.</h6>
 <h6>2. 수정사항이 없을 경우 버튼은 비활성화 상태이다.</h6>
@@ -60,4 +60,12 @@
 
 <br/>
 
-
+## 마이페이지
+<h4>마이페이지는 내가 쓴 글, 개인정보 수정, 알람으로 구성하였다.</h4>
+<details>
+  <summary>내가 쓴 </summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/68c3d07f-72ad-474d-861c-bccbf2846aa0"/>
+</details>
+<h6>1. 게시글 작성은 React-Quill editor을 사용하였다.</h6>
+<h6>2. 파일 첨부와 에디터에 파일은 별개이다.</h6>
+<h6>3. 파일과, 에디터 내용의 용량의 합이 30MB가 초과되면 작성이 불가능하다.</h6>
