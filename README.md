@@ -110,9 +110,11 @@
 ## 로그인 회원가입
 <details>
   <summary>회원가입</summary>
-  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/ec8d71e9-819f-4736-a04b-fffa43b9a5c5"/>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/109a085f-0b8e-4240-b10e-86c88cab673b"/>
 </details>
-<h6>1. 원ㄻㄴ</h6>
+<h6>1. 성명, 전화번호, 이메일, 아이디, 비밀번호로 구성이 되어있다.</h6>
+<h6>2. 입력사항을 지키지 않을 시 회원가입이 불가능하다. + (아이디 중복확인)</h6>
+<h6>3. 회원가입 성공 시 로그인 페이지로 넘어간다.</h6>
 
 <br/>
 
@@ -122,4 +124,12 @@
 </details>
 <h6>1. 아이디, 비밀번호가 DB에 일치하면 해당 회원 정보와 accessToken을 발급한다.</h6>
 
+<br/>
+
+<details>
+  <summary>로그인 후 GNB</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/6a963ee1-af9b-4d78-85ca-ab13a71c7fab"/>
+</details>
+<h6>1. ~반가워요 클릭 시 마이페이지로 이동한다.</h6>
+<h6>2. 종 모양 클릭 시 알림페이지로 이동한다.</h6>
 
