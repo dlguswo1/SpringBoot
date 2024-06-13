@@ -78,3 +78,31 @@
 </details>
 <h6>1. 개인정보 수정 전 비밀번호를 확인한다.</h6>
 
+<br/>
+
+<details>
+  <summary>개인정보 수정</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/25836532-15f4-41f6-9a83-ec1f7adb0b86"/>
+</details>
+<h6>1. 개인 정보를 수정한다.</h6>
+
+
+<br/>
+
+<details>
+  <summary>알림</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/b6494814-1a53-4292-8a5c-439f6e42b0f0"/>
+</details>
+<h6>1. 자신의 댓글, 게시글에 댓글이 달렸을 경우, 자신의 게시글, 댓글이 삭제처리 되었을 경우 알림을 적용했다.</h6>
+<h6>2. 리스트 형식이고 형식 , 번호 , (작성자/수정자) , (제목/내용)으로 나타내었다.</h6>
+<h6>3. 확인하지 않은 알림은 테두리선이 활성화 되어있다.</h6>
+
+<br/>
+
+<details>
+  <summary>알림 확인 (댓글)</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/4c41acb2-4868-40a7-86d9-a236fe625e40"/>
+</details>
+<h6>1. 자신의 댓글, 게시글에 댓글이 달렸을 경우, 자신의 게시글, 댓글이 삭제처리 되었을 경우 알림을 적용했다.</h6>
+<h6>2. 리스트 형식이고 형식 , 번호 , (작성자/수정자) , (제목/내용)으로 나타내었다.</h6>
+<h6>3. 확인하지 않은 알림은 테두리선이 활성화 되어있다.</h6>
