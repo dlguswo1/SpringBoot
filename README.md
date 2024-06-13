@@ -104,3 +104,22 @@
   <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/4c41acb2-4868-40a7-86d9-a236fe625e40"/>
 </details>
 <h6>1. 알림 클릭 시 게시글에 있는 해당 알림인 댓글까지 포커스 되도록 적용했다.</h6>
+
+<br/>
+
+## 로그인 회원가입
+<details>
+  <summary>회원가입</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/ec8d71e9-819f-4736-a04b-fffa43b9a5c5"/>
+</details>
+<h6>1. 원ㄻㄴ</h6>
+
+<br/>
+
+<details>
+  <summary>로그인</summary>
+  <img src="https://github.com/dlguswo1/SpringBoot/assets/144756943/ec8d71e9-819f-4736-a04b-fffa43b9a5c5"/>
+</details>
+<h6>1. 아이디, 비밀번호가 DB에 일치하면 해당 회원 정보와 accessToken을 발급한다.</h6>
+
+
